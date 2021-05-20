@@ -14,3 +14,11 @@
 ## Demo Video
 
 https://user-images.githubusercontent.com/58139175/118932545-c7cf0200-b965-11eb-8308-df9edf5a31dd.mp4
+
+## Deo Output
+
+ ### First Output
+ -- > L R L R B L R L E
+ 
+ ## final Output (Simplify output)
+ -- > L R S E
