@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/58139175/118932545-c7cf0200-b965-11eb-
 ## Deo Output
 
  ### First Output
- -- > L R L R B L R L E
+ -- > L B L L
  
  ### Final Output (Simplify output)
- -- > L R S E
+ -- > S
