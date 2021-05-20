@@ -20,5 +20,5 @@ https://user-images.githubusercontent.com/58139175/118932545-c7cf0200-b965-11eb-
  ### First Output
  -- > L R L R B L R L E
  
- ## final Output (Simplify output)
+ ### Final Output (Simplify output)
  -- > L R S E
