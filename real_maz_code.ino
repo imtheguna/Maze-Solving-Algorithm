@@ -10,7 +10,7 @@ void Goleft();
 void Go();
 void Goback();
 void Goright1();
-void Goleft1();
+void Goleft1(); 
 void Stop();
 void check();
 #define M1 9
@@ -45,11 +45,10 @@ void loop()
 
     }
     //delay(30);
-    if (input[0]==1 &&  input[4]==1 &&  input[1]==1 ){ 
-
+    if (input[0]==1 &&  input[4]==1 &&  input[2]==1 ){ 
     check();
     }
-    else if (input[0]==1 && input[2]==1 && input[1]==1 && input[4]==0){
+    else if (input[0]==1 && input[2]==1  && input[4]==0){
      inchleft();}
     /*else if(input[0]==1 )
     {
@@ -267,27 +266,21 @@ void Stop()
 
 for(i=0;i<=pathlength;i++)
     Serial.print(path[i]);
-while(digitalRead(8)!=HIGH)
-{
+//while(digitalRead(8)!=HIGH)
+//{
  
-}
- 
-}
+//}
+Goback();
 
-void Stop1()
-{
-  int i;
- digitalWrite(M1,LOW);
- digitalWrite(M2,LOW);
- digitalWrite(M3,LOW);
- digitalWrite(M4,LOW); 
+
+ 
 }
 void Goleft()
 {
 
  int n;
   Go1();
-  delay(100);
+  delay(300);
 
  Go1();
  delay(300);
@@ -317,20 +310,11 @@ void Goleft1()
   }
 void Goback()
 {
-  Go1();
-  delay(80);
-  Stop1();
-  delay(100);
-    for (int thisPin = 0; thisPin < pinCount; thisPin++) {
-    input[thisPin]=digitalRead(ledPins[thisPin]);
-
-    }
+ 
   if(input[0]==0 &&input[1]==0 &&input[2]==0&&input[3]== 0 &&input[4]==0){
   pathlength=pathlength+1;
   path[pathlength]='B';
     Serial.print('B');}
-    else
-    return ;
  Go1();
  delay(500);
  while(digitalRead(4)!=1)
@@ -364,8 +348,9 @@ delay(400);
          pathlength=pathlength+1;
   path[pathlength]='L';
     Serial.println('L');
-  }  
+  }
 }
+
 void inch()
 {
    digitalWrite(M1,HIGH);
@@ -418,3 +403,54 @@ void inchleft()
     Serial.println('L');
       }
 }
+void return_path()
+{
+  char path_return[50];
+  int j=0;
+  for (int i;i<=pathlength;i++){
+    if(i!='0'){
+      path_return[j]==i; 
+      j++;
+      }
+    }
+    while(j!=-1){
+    for (int thisPin = 0; thisPin < pinCount; thisPin++) {
+    input[thisPin]=digitalRead(ledPins[thisPin]);
+   }
+   if(input[0]==0 && input[2]==1 && input[4]==0)
+   {
+    Go1();
+    } 
+   else if(input[0]==1 || input[4]==1)
+   {
+    switch (path_return[j--]) {
+    case 'S':
+      Go();   
+      break;
+    case 'L':
+      Goleft();   
+      break;
+    case 'R':  
+      Goright();  
+      break;
+      
+      }
+    }
+    else if(input[0]==0&&input[1]==0&&input[2]==0&&input[3]==0&&input[4]==0)
+    stop1();
+    }
+   
+}
+
+void stop1()
+{
+  digitalWrite(M1,LOW);
+ digitalWrite(M2,LOW);
+ digitalWrite(M3,LOW);
+ digitalWrite(M4,LOW); 
+while(1)
+{
+  
+   }
+  
+  }
